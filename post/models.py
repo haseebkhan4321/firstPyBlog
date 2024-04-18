@@ -3,7 +3,7 @@ from django.db import models
 from category.models import Category
 from comment.models import Comment
 from tag.models import Tag
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -14,6 +14,10 @@ class Post(models.Model):
     image = models.ImageField(default="default.jpg")
     category = models.OneToOneField(
         Category,
+        on_delete=models.CASCADE,
+    )
+    author = models.OneToOneField(
+        User,
         on_delete=models.CASCADE,
     )
     tag = models.ManyToManyField(Tag)
