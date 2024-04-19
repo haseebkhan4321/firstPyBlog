@@ -281,7 +281,9 @@
                 {% for post in allPosts %}
                 <article class="card mb-4">
                     <div class="post-slider">
-                        <img src="{{post.image.url}}" class="card-img-top" alt="post-thumb">
+                        {% for postMedia in post.postmedia_set.all %}
+                            <img src="{{postMedia.file.url}}" class="card-img-top" alt="post-thumb">
+                        {% endfor %}
                     </div>
                     <div class="card-body">
                         <h3 class="mb-3"><a class="post-title" href="post-elements.html">{{post.title}}</a></h3>

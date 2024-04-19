@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'category',
     'tag',
     'review',
+    'postMedia',
     'post'
 ]
 
