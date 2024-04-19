@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../../../laragon/www/blog-website-theme/.idea/blog-website-theme.iml" filepath="$PROJECT_DIR$/../../../../laragon/www/blog-website-theme/.idea/blog-website-theme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../laragon/www/blogs-theme/.idea/blogs-theme.iml" filepath="$PROJECT_DIR$/../../../../laragon/www/blogs-theme/.idea/blogs-theme.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/myBlogs.iml" filepath="$PROJECT_DIR$/.idea/myBlogs.iml" />
     </modules>
   </component>

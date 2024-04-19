@@ -1,6 +1,6 @@
 from django.db.models import Count
 from django.shortcuts import render
-
+from django.core.paginator import Paginator
 from category.models import Category
 from tag.models import Tag
 from post.models import Post
@@ -13,7 +13,8 @@ def homepage(request):
     trendingPosts = Post.objects.filter(published_at__isnull=False).order_by('-total_views')[:3]
     popularPost = Post.objects.annotate(num_reviews=Count('review')).filter(published_at__isnull=False).order_by('-num_reviews').first()
     topRatedPosts = Post.objects.all()
-    allPosts = Post.objects.all()
+    allPosts = Paginator(Post.objects.all(),1)
+    postPerPage = allPosts.page(int(request.GET.get('page', 1)))
     return render(request, 'homepage.html',{
         'categories': categories,
         'tags': tags,
@@ -21,5 +22,7 @@ def homepage(request):
         'editorPickPost': editorPickPost,
         'popularPost': popularPost,
         'topRatedPosts': topRatedPosts,
-        'allPosts':allPosts
+        'allPosts': allPosts,
+        'postPerPage': postPerPage,
+
     })

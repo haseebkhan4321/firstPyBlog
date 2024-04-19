@@ -180,6 +180,7 @@
         <div class="row">
             <div class="col-lg-4 mb-5">
                 <h2 class="h5 section-title">Editors Pick</h2>
+                {% if editorPickPost %}
                 <article class="card">
                     <div class="post-slider slider-sm">
                         <img src="{{editorPickPost.image.url}}" class="card-img-top" alt="post-thumb">
@@ -211,6 +212,7 @@
                         <a href="post-details.html" class="btn btn-outline-primary">Read More</a>
                     </div>
                 </article>
+                {% endif %}
             </div>
             <div class="col-lg-4 mb-5">
                 <h2 class="h5 section-title">Trending Post</h2>
@@ -236,6 +238,7 @@
 
             <div class="col-lg-4 mb-5">
                 <h2 class="h5 section-title">Popular Post</h2>
+                {% if popularPost %}
                 <article class="card">
                     <div class="post-slider slider-sm">
                         <img src="{{ popularPost.image.url }}" class="card-img-top" alt="post-thumb">
@@ -265,6 +268,7 @@
                         <a href="post-details.html" class="btn btn-outline-primary">Read More</a>
                     </div>
                 </article>
+                {% endif %}
             </div>
             <div class="col-12">
                 <div class="border-bottom border-default"></div>
@@ -278,11 +282,11 @@
         <div class="row justify-content-center">
             <div class="col-lg-8  mb-5 mb-lg-0">
                 <h2 class="h5 section-title">Recent Post</h2>
-                {% for post in allPosts %}
+                {% for post in postPerPage.object_list %}
                 <article class="card mb-4">
                     <div class="post-slider">
                         {% for postMedia in post.postmedia_set.all %}
-                            <img src="{{postMedia.file.url}}" class="card-img-top" alt="post-thumb">
+                        <img src="{{postMedia.file.url}}" class="card-img-top" alt="post-thumb">
                         {% endfor %}
                     </div>
                     <div class="card-body">
@@ -312,15 +316,35 @@
                 </article>
                 {% endfor %}
                 <ul class="pagination justify-content-center">
+
+
+                    {% if postPerPage.previous_page_number|add:'-1' > 0 %}
+                    <li class="page-item">
+                        <a href="?page={{ postPerPage.previous_page_number|add:'-1' }}" class="page-link"><i class='ti-angle-left'></i></a>
+                    </li>
+                    {% endif %}
+
+                    {% if postPerPage.has_previous %}
+                    <li class="page-item">
+                        <a href="?page={{ postPerPage.previous_page_number }}" class="page-link">{{postPerPage.previous_page_number}}</a>
+                    </li>
+                    {% endif %}
+
                     <li class="page-item page-item active ">
-                        <a href="#!" class="page-link">1</a>
+                        <a href="?page={{ postPerPage.number }}" class="page-link">{{ postPerPage.number }}</a>
                     </li>
+
+                    {% if postPerPage.has_next %}
                     <li class="page-item">
-                        <a href="#!" class="page-link">2</a>
+                        <a href="?page={{postPerPage.next_page_number}}" class="page-link">{{postPerPage.next_page_number}}</a>
                     </li>
+                    {% endif %}
+
+                    {% if postPerPage.next_page_number < allPosts.num_pages %}
                     <li class="page-item">
-                        <a href="#!" class="page-link">&raquo;</a>
+                        <a href="?page={{postPerPage.next_page_number|add:'+1'}}" class="page-link"><i class='ti-angle-right'></i></a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
             <aside class="col-lg-4 sidebar-home">
@@ -354,17 +378,16 @@
                     </ul>
                     <a href="about-me.html" class="btn btn-primary mb-2">About me</a>
                 </div>
-
+                <!-- Adds will also go here -->
                 <!-- Promotion -->
                 <div class="promotion">
                     <img src="{% static 'images/promotion.jpg' %}" class="img-fluid w-100">
                     <div class="promotion-content">
-                        <h5 class="text-white mb-3">Create Stunning Website!!</h5>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit ornare turpis posuere.</p>
-                        <a href="https://themefisher.com/" class="btn btn-primary">Get Started</a>
+                        <h5 class="text-white mb-3">Discover, Explore, Engage!!</h5>
+                        <p class="text-white mb-4">Whether you're a passionate reader seeking fresh insights or a content creator looking to reach a wider audience, this is your go-to destination for automated curated content. Start exploring today and unlock a world of possibilities!.</p>
+                        <a href="https://themefisher.com/" class="btn btn-primary">Register</a>
                     </div>
                 </div>
-
                 <!-- authors -->
                 <div class="widget widget-author">
                     <h4 class="widget-title">Authors</h4>
