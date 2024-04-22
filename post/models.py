@@ -29,7 +29,7 @@ class Post(models.Model):
     content = models.TextField(blank=True, null=True)
     image = models.ImageField(default="default.jpg")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, )
+    author = models.ForeignKey(User, on_delete=models.CASCADE )
     tag = models.ManyToManyField(Tag)
     total_views = models.IntegerField(default=0)
     flag_1 = models.BooleanField(default=False)  # flag for editor choice
