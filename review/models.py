@@ -15,10 +15,12 @@ class Review(models.Model):
         REJECTED = "rejected"
         PENDING = "pending"
 
-    post = models.OneToOneField(
+    post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
     )
+    name = models.CharField(max_length=255,default='anonymous')
+    email = models.EmailField(null=True)
     content = models.CharField(max_length=255)
     rating = models.IntegerField(default=0)
     status = models.CharField(
