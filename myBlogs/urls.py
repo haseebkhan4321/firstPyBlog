@@ -19,11 +19,14 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
-from .views import *
+from myBlogs import views
 
 urlpatterns = [
-    path('', homepage),
-    path('/about-us', about_us),
+    path('', views.homepage),
+    path('about-us', views.about_us),
+    path('privacy-policy', views.privacy_policy),
+    path('terms-conditions', views.terms_conditions),
+    path('contact-us', views.contact_us),
     path('post/', include('post.urls')),
     path('admin/', admin.site.urls),
 ]

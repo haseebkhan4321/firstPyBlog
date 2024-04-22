@@ -26,4 +26,10 @@ def homepage(request):
         'postPerPage': postPerPage,
     })
 def about_us(request):
-    return render(request, 'about.html')
+    return render(request, 'about-us.html')
+def privacy_policy(request):
+    return render(request, 'privacy-policy.html')
+def terms_conditions(request):
+    return render(request, 'terms-conditions.html')
+def contact_us(request):
+    return render(request, 'contact-us.html')
