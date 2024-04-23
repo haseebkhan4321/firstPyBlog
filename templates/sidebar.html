@@ -112,7 +112,7 @@
                         <div class="d-flex">
                             <img class="card-img-sm" src="{{topRatedPost.feature_image.file.url}}">
                             <div class="ml-3">
-                                <h5><a class="post-title" href="post/elements/">{{topRatedPost.title}}</a></h5>
+                                <h5><a class="post-title" href="/post/{{topRatedPost.slug}}/">{{topRatedPost.title}}</a></h5>
                                 <ul class="card-meta list-inline mb-0">
                                     <li class="list-inline-item mb-0">
                                         <i class="ti-calendar"></i>{{topRatedPost.published_at | date:"F j, Y" }}

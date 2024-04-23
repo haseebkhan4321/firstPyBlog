@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="card-body">
-                        <h3 class="h4 mb-3"><a class="post-title" href="post-details.html">
+                        <h3 class="h4 mb-3"><a class="post-title" href="/post/{{editorPickPost.slug}}">
                             {{editorPickPost.title}}
                         </a></h3>
                         <ul class="card-meta list-inline">
@@ -101,7 +101,7 @@
                             </li>
                         </ul>
                         <p>{{editorPickPost.content | truncatechars:50}}</p>
-                        <a href="post-details.html" class="btn btn-outline-primary">Read More</a>
+                        <a href="/post/{{editorPickPost.slug}}" class="btn btn-outline-primary">Read More</a>
                     </div>
                 </article>
                 {% endif %}
@@ -113,7 +113,7 @@
                     <div class="card-body d-flex">
                         <img class="card-img-sm" src="{{trendingPost.feature_image.file.url}}">
                         <div class="ml-3">
-                            <h4><a href="post-details.html" class="post-title">{{trendingPost.title}}</a></h4>
+                            <h4><a href="/post/{{trendingPost.slug}}" class="post-title">{{trendingPost.title}}</a></h4>
                             <ul class="card-meta list-inline mb-0">
                                 <li class="list-inline-item mb-0">
                                     <span>{{popularPost.author.first_name}} {{popularPost.author.last_name}}</span>
@@ -137,7 +137,7 @@
                         {% endfor %}
                     </div>
                     <div class="card-body">
-                        <h3 class="h4 mb-3"><a class="post-title" href="post-details.html">{{popularPost.title}}</a></h3>
+                        <h3 class="h4 mb-3"><a class="post-title" href="/post/{{popularPost.slug}}">{{popularPost.title}}</a></h3>
                         <ul class="card-meta list-inline">
                             <li class="list-inline-item">
                                 <a href="author-single.html" class="card-meta-author">
@@ -158,7 +158,7 @@
                             </li>
                         </ul>
                         <p>{{ popularPost.content | truncatechars:50 }}</p>
-                        <a href="post-details.html" class="btn btn-outline-primary">Read More</a>
+                        <a href="/post/{{popularPost.slug}}" class="btn btn-outline-primary">Read More</a>
                     </div>
                 </article>
                 {% endif %}
@@ -183,7 +183,7 @@
                         {% endfor %}
                     </div>
                     <div class="card-body">
-                        <h3 class="mb-3"><a class="post-title" href="post-elements.html">{{post.title}}</a></h3>
+                        <h3 class="mb-3"><a class="post-title" href="/post/{{post.slug}}">{{post.title}}</a></h3>
                         <ul class="card-meta list-inline">
                             <li class="list-inline-item">
                                 <a href="author-single.html" class="card-meta-author">
@@ -204,7 +204,7 @@
                         </ul>
                         <p>
                             {{post.content | truncatechars:50 }}</p>
-                        <a href="post-elements.html" class="btn btn-outline-primary">Read More</a>
+                        <a href="/post/{{post.slug}}" class="btn btn-outline-primary">Read More</a>
                     </div>
                 </article>
                 {% endfor %}
