@@ -79,13 +79,13 @@ WSGI_APPLICATION = 'myBlogs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         # 'NAME': BASE_DIR / 'db.sqlite3',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'NAME': 'my-blogs',
-        'USER': 'root',
-        'PASSWORD': '',
+        'HOST': 'fairly-crucial-skylark-iad.a1.pgedge.io',
+        'PORT': '5432',
+        'NAME': 'firstpyblogs',
+        'USER': 'admin',
+        'PASSWORD': '3o5Q0fvI80fJSvG40301Qfpn',
     }
 }
 
